@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Product
+{% endblock %}
+
+{% block content %}
+
+<div class="left-sidebar container">
+
+    <div role="tabpanel" class="tab-pane" id="list-view" aria-expanded="true">
+
+        
+        <ul class="products columns-3">
+
+            {% for product in products_list %}
+            <li class="product list-view">
+                <div class="media">
+                    <div class="media-left">
+                        <a href="single-product.html">
+                            <img class="wp-post-image" data-echo="{{product.image.url}}" src="assets/images/blank.gif"
+                                alt="">
+                        </a>
+                    </div>
+                    <div class="media-body media-middle">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <span class="loop-product-categories"><a rel="tag"
+                                        href="#">{{product.category}}</a></span><a href="{{product.get_url}}">
+                                    <h3>{{product.name}}</h3>
+                                    <!-- <div class="product-rating">
+                                                    <div title="Rated 4 out of 5" class="star-rating"><span style="width:80%"><strong class="rating">4</strong> out of 5</span></div> (3)
+                                                </div> -->
+                                    <div class="product-short-description">
+                                        <ul style="padding-left: 18px;">
+                                            {% if product.specification1 %}
+                                            <li>{{product.specification1}}</li>
+                                            {% endif %}
+
+                                            {% if product.specification2 %}
+                                            <li>{{product.specification2}}</li>
+                                            {% endif %}
+
+                                            {% if product.specification3 %}
+                                            <li>{{product.specification3}}</li>
+                                            {% endif %}
+
+                                            {% if product.specification4 %}
+                                            <li>{{product.specification4}}</li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-xs-12">
+
+                                <div class="availability in-stock">Availablity: <span>{{product.availability}}</span>
+                                </div>
+
+                                <span class="price"><span class="electro-price"><span
+                                            class="amount">{{product.price}}</span></span></span>
+                                <a rel="nofollow" href="{% url 'add_cart' product.id %}"
+                                    class="single_add_to_cart_button button">Add to cart</a>
+                                <div class="hover-area">
+                                    <div class="action-buttons">
+                                        <div class="yith-wcwl-add-to-wishlist add-to-wishlist-2706">
+                                            <!-- <a class="add_to_wishlist" data-product-type="simple" data-product-id="2706" rel="nofollow" href="#">Wishlist</a> -->
+
+                                            <div style="display:none;" class="yith-wcwl-wishlistaddedbrowse hide">
+                                                <span class="feedback">Product added!</span>
+                                                <!-- <a rel="nofollow" href="#">Wishlist</a> -->
+                                            </div>
+
+                                            <div style="display:none" class="yith-wcwl-wishlistexistsbrowse hide">
+                                                <span class="feedback">The product is already in the wishlist!</span>
+                                                <!-- <a rel="nofollow" href="#">Wishlist</a> -->
+                                            </div>
+
+                                            <div style="clear:both"></div>
+                                            <div class="yith-wcwl-wishlistaddresponse"></div>
+
+                                        </div>
+                                        <div class="clear"></div>
+                                        <!-- <a data-product_id="2706" class="add-to-compare-link" href="#">Compare</a> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+</div>
+{% endblock %}

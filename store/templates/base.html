@@ -1,0 +1,275 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %} Home {% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/logo.png' %}">
+
+    <!-- CSS 
+    ========================= -->
+
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/plugins.css' %}">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+</head>
+
+<body>
+
+    <!--header area start-->
+
+    <!--Offcanvas menu area start-->
+    <div class="off_canvars_overlay">
+
+    </div>
+   
+    <!--Offcanvas menu area end-->
+
+    <header>
+        <div class="main_header">
+            <!--header top start-->
+            <div class="header_top">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="support_info">
+                                <p>Telephone Enquiry: <a href="tel:+2348038015620">08038015620</a></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="top_right text-right">
+                                <ul>
+                                    sales@tmglobalcommunication.com
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--header top start-->
+            <!--header middel start-->
+
+
+
+            <div class="header_middle">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-6">
+                            <!-- <div class="logo"> -->
+                            <a href="/">
+                               <img src="{% static 'assets/img/logo/logo.jpg' %}" alt="">
+                            </a>
+                            
+                            <!-- </div> -->
+                        </div>
+                        <div class="col-lg-9 col-md-6">
+                            <div class="middel_right">
+                                <div class="search_container">
+                                    <form action="{% url 'search' %}" , method="GET">
+
+                                        <div class="search_box">
+                                            <input placeholder="Search product..." type="text" id="search" name='title'>
+                                            <input type="hidden" name="post_type" value="product" />
+                                            <button type="submit">Search</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="middel_right_info">
+                                    
+                                    {% if item_count > 0 %}
+                                    <div class="mini_cart_wrapper">
+                                        <a href="{% url 'cart_detail' %}"><i class="fa fa-shopping-bag"
+                                                aria-hidden="true"></i>{{total}}</i></a>
+                                        <span class="cart_quantity">({{item_count}})</span>
+                        
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--header middel end-->
+            <!--header bottom satrt-->
+            <div class="main_menu_area">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-3 col-md-12">
+               
+                        </div>
+                        <div class="col-lg-12 col-md-12">
+                            <div class="main_menu menu_position">
+                                <nav class="p-2 text-white">
+                                    &nbsp;
+                                    <p class="notification"> <span> Payment is strickly on Delivery within lagos. Visit us at 14. Ola-Ayeni Street, (Computer Village) Ikeja, Lagos. Call
+                                        08038015620 for enquiries.</span></p>
+                                    <!-- <ul>
+                                        <li><a class="active"  href="/">home</a>                                           
+                                        </li>
+                                        <li class="mega_items"><a href="{% url 'products-list' %}">shop</a> 
+                                           
+                                        </li>                                                                                                           
+                                        
+                                    </ul>   -->
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--header bottom end-->
+        </div>
+    </header>
+    <!--header area end-->
+
+    <!--sticky header area start-->
+    <div class="sticky_header_area sticky-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="/"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="sticky_header_right menu_position">
+                        <div class="main_menu">
+                            <nav>
+                                <!-- <ul>
+                                    <li><a class="active"  href="/">home</a>
+                                       
+                                    </li>
+                                    <li class="mega_items"><a href="{% url 'products-list' %}">shop</a>                                        </li>
+                                </ul>   -->
+                            </nav>
+                        </div>
+                        <div class="middel_right_info">
+                            <!-- <div class="header_wishlist">
+                                <a href="wishlist.html"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                <span class="wishlist_quantity">3</span>
+                            </div> -->
+                            {% if item_count > 0 %}
+                            <div class="mini_cart_wrapper">
+                                <a href="{% url 'cart_detail' %}"><i class="fa fa-shopping-bag"
+                                        aria-hidden="true"></i>{{total}}</i></a>
+                                <span class="cart_quantity">({{item_count}})</span>
+                                <!--mini cart-->
+                
+                                <!--mini cart end-->
+
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--sticky header area end-->
+
+    <!--slider area start-->
+
+    <!--slider area end-->
+    {% block content %} {% endblock %}
+
+
+    <!--footer area start-->
+    <footer class="footer_widgets" >
+        <div class="footer_top" style="padding: 15px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2">
+                        <div class="widgets_container contact_us pt-4">
+                            <div class="footer_logo">
+                                <a href="/"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                            </div>
+                           
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="widgets_container widget_menu">
+                            <p>14. Ola-Ayeni Street, (Computer Village) Ikeja, Lagos.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-sm-6">
+                        <div class="widgets_container widget_menu">
+                            <p><a href="tel:+2348038015620">08038015620</a> </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="widgets_container newsletter">
+                           
+                            <div class="footer_social_link">
+                                <ul>
+                                    <li><a class="facebook" href="#" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li><a class="twitter" href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li><a class="instagram" href="#" title="instagram"><i
+                                                class="fa fa-instagram"></i></a></li>
+                                    <!-- <li><a class="linkedin" href="#" title="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="rss" href="#" title="rss"><i class="fa fa-rss"></i></a></li> -->
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 col-md-6">
+                        <div class="copyright_area">
+                            <p class="text-center">Copyright &copy; 2021 TM GLOBAL COMMUNICATION All Right Reserved.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer_payment text-right">
+                            <a href="#"><img src="assets/img/icon/payment.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--footer area end-->
+
+    <!-- modal area start-->
+
+    <!-- modal area end-->
+
+    <!--news letter popup start-->
+
+    <!--news letter popup ends-->
+
+
+
+
+    <!-- JS
+============================================ -->
+
+    <!-- Plugins JS -->
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+
+</body>
+
+</html>

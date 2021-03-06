@@ -1,0 +1,480 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+            
+{% block content %}
+    <!--slider area start-->
+    <section class="slider_section mb-70">
+        <div class="slider_area owl-carousel">
+            <div class="single_slider d-flex align-items-center" data-bgimg="{% static 'assets/img/slider/slider3.png' %}">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-12">
+                           <div class="slider_content">
+                               <h1>Series 6</h1>
+                                <h2>never sleeps</h2>
+                                <p>exclusive offer <span> HOT SALE </span> Hury up!</p>
+                                <a class="button" href="{% url 'products-list' %}">more</a>
+                            </div>
+                       </div>
+                   </div>
+               </div>
+                
+            </div>
+            <div class="single_slider d-flex align-items-center" data-bgimg="{% static 'assets/img/slider/slider2.png' %}">
+                <div class="container">
+                   <div class="row">
+                       <div class="col-12">
+                           <div class="slider_content">
+                                <h1>“OK, everyone,  </h1>
+                                <h2>scooch out a bit.”</h2>
+                                <p>exclusive offer <span> HOT SALE </span> Hurry up!</p>
+                                <a class="button" href="{% url 'products-list' %}">more</a>
+                            </div>
+                       </div>
+                   </div>
+               </div>
+            </div>
+      
+        </div>
+    </section>
+    <!--slider area end-->
+
+    <!--shipping area start-->
+    <section class="shipping_area mb-70">
+        <div class="container">
+            <div class=" row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="single_shipping">
+                        <div class="shipping_icone">
+                            <img src="{% static 'assets/img/about/1.png' %}" alt="">
+                        </div>
+                        <div class="shipping_content">
+                            <h2>Free Shipping</h2>
+                            <p>Free shipping on all Lagos order. TC Applies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single_shipping">
+                        <div class="shipping_icone">
+                            <img src="{% static 'assets/img/about/2.png' %}" alt="">
+                        </div>
+                        <div class="shipping_content">
+                            <h2>Support 24/7</h2>
+                            <p>Contact us 24 hours a day</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="single_shipping">
+                        <div class="shipping_icone">
+                            <img src="{% static 'assets/img/about/3.png' %}" alt="">
+                        </div>
+                        <div class="shipping_content">
+                            <h2>100% Money Back</h2>
+                            <p>You have 7 days to Return</p>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-lg-3 col-md-6">
+                    <div class="single_shipping">
+                        <div class="shipping_icone">
+                            <img src="{% static 'assets/img/about/4.png' %}" alt="">
+                        </div>
+                        <div class="shipping_content">
+                            <h2>Payment Secure</h2>
+                            <p>We ensure secure payment</p>
+                        </div>
+                    </div>
+                </div>                          
+            </div>
+        </div>
+    </section>
+    <!--shipping area end-->
+    
+    <!--banner area start-->
+    <!-- <div class="banner_area mb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="{% static 'assets/img/bg/banner1.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="{% static 'assets/img/bg/banner2.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="{% static 'assets/img/bg/banner3.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--banner area end-->
+    
+    <!--product area start-->
+    
+    <!--product area end-->
+    
+    <!--banner area start-->
+    <!-- <div class="banner_area mb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="{% static 'assets/img/bg/banner4.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="{% static 'assets/img/bg/banner5.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--banner area end-->
+    
+    <!--top- category area start-->
+    <section class="top_category_product mb-70">
+        <div class="container">
+            <div class="row">                
+                <div class="col-lg-2 col-md-3">
+                    <div class="top_category_header">
+                        <h3>Top Categories</h3>
+                        <p>You can shop our products by category.</p>
+                        <a href="{% url 'products-list' %}">Show All Products</a>
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-9">
+                    <div class="top_category_container category_column5 owl-carousel">
+                        {% for category in links %}
+                        <div class="col-lg-2">
+                            <article class="single_category">
+                                <figure>
+                                    <div class="category_thumb">
+                                        <a href="{% url 'category-detail' category.slug %}"><img src="{{category.image.url}}" alt=""></a>
+                                    </div>
+                                    <figcaption class="category_name">
+                                        <h3><a href="{% url 'category-detail' category.slug %}">{{category.name}} </a></h3>
+                                    </figcaption>
+                                </figure>
+                            </article>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--top- category area end-->
+    
+    <!--featured product area start-->
+    <!-- <section class="featured_product_area mb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section_title">
+                       <h2>Featured Products</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row featured_container featured_column3">
+                
+                {% for product in product_list %}
+                {% if product.featured_products %}
+                <div class="col-lg-4">
+                    <article class="single_product">
+                        <figure>
+                            <div class="product_thumb">
+                                <a class="primary_img" href="{{product.get_url}}"><img src="{{product.product_image.url}}" alt=""></a>
+                                <a class="secondary_img" href="{{product.get_url}}"><img src="{{product.product_image.url}}" alt=""></a>
+                                <div class="label_product">
+                                    <span class="label_sale">sale</span>
+                                </div>
+                            </div>
+                            <figcaption class="product_content">
+                               <div class="price_box">
+                                    <span class="current_price">₦{{product.price}}</span>  
+                                </div>
+                                <h3 class="product_name"><a href="{{product.get_url}}">{{product.featured_products_description}}</a></h3>
+                                <div class="add_to_cart">
+                                    <a href="{% url 'add_cart' product.id %}" title="add to cart">Add to cart</a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </div>
+
+
+
+
+               
+
+                
+
+                {% endif %}
+                {% endfor %}
+                
+            </div> 
+        </div>
+    </section> -->
+
+
+
+
+
+    <section class="product_area mb-46">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section_title">
+                        <h2>Featured Products</h2>
+                    </div>
+                </div>
+            </div> 
+            <div class="product_carousel product_column5 owl-carousel">
+
+                
+
+                {% for product in product_list %}
+                {% if product.featured_products %}
+                <article class="single_product">
+                    <figure>
+                        <div class="product_thumb">
+                            {% if product.product_image %}
+                            <a class="primary_img" href="{{product.get_url}}"><img src="{{product.product_image.url}}" alt=""></a>
+                            {% endif %}
+
+                            <!-- {% if product.product_image %}
+                            <a class="secondary_img" href="{{product.get_url}}"><img src="{{product.product_image.url}}" alt=""></a>
+                            {% endif %} -->
+                            <!-- <div class="label_product">
+                                <span class="label_sale">sale</span>
+                            </div> -->
+                            <div class="action_links">
+                                <!-- <ul>
+                                    <li class="wishlist"><a href="wishlist.html" title="Add to Wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a></li>
+                                    <li class="compare"><a href="#" title="compare"><span class="ion-levels"></span></a></li>
+                                    <li class="quick_button"><a href="#" data-toggle="modal" data-target="#modal_box"  title="quick view"> <span class="ion-ios-search-strong"></span></a></li>
+                                </ul> -->
+                            </div>
+                           
+                        </div>
+                        <figcaption class="product_content">
+                           <div class="price_box">
+                                <!-- <span class="old_price">₦86.00</span>   -->
+                                <span class="current_price">₦{{product.price}}</span>  
+                            </div>
+                            <h3 class="product_name"><a href="{{product.get_url}}">{{product.product_name}}</a></h3>
+                        </figcaption>
+                        <!-- <div class="add_to_cart">
+                            <a href="{% url 'add_cart' product.id %}" title="add to cart">Add to cart</a>
+                        </div> -->
+                    </figure>
+                </article>
+                {% endif %}
+                {% endfor %}              
+            </div>   
+        </div>
+    </section>
+    <!-- featured product area end -->
+    
+    <!-- product area start -->
+
+    <!-- product area end -->
+    
+    <!-- banner area start -->
+    <!-- <div class="banner_area mb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-9">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="assets/img/bg/banner6.jpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="assets/img/bg/banner7.jpg" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- banner area end -->
+    
+    <!--product area start-->
+    <section class="product_area mb-46">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section_title">
+                        <h2>Hot Deals</h2>
+                    </div>
+                </div>
+            </div> 
+            <div class="product_carousel product_column5 owl-carousel">
+
+                
+
+                {% for product in product_list %}
+                {% if product.hot_deals %}
+                <article class="single_product">
+                    <figure>
+                        <div class="product_thumb">
+                            {% if product.product_image %}
+                            <a class="primary_img" href="{{product.get_url}}"><img src="{{product.product_image.url}}" alt=""></a>
+                            {% endif %}
+
+                            <!-- {% if product.product_image %}
+                            <a class="secondary_img" href="{{product.get_url}}"><img src="{{product.product_image.url}}" alt=""></a>
+                            {% endif %} -->
+                            <!-- <div class="label_product">
+                                <span class="label_sale">sale</span>
+                            </div> -->
+                            <!-- <div class="action_links">
+                                
+                            </div> -->
+                           
+                        </div>
+                        <figcaption class="product_content">
+                           <div class="price_box">
+                                <!-- <span class="old_price">₦86.00</span>   -->
+                                <span class="current_price">₦{{product.price}}</span>  
+                            </div>
+                            <h3 class="product_name"><a href="{{product.get_url}}">{{product.product_name}}</a></h3>
+                            <!-- <div class="add_to_cart">
+                                <a href="{% url 'add_cart' product.id %}" title="add to cart">Add to cart</a>
+                            </div> -->
+                        </figcaption>
+                    </figure>
+                </article>
+                {% endif %}
+                {% endfor %}              
+            </div>   
+        </div>
+    </section>
+    <!--product area end-->
+    
+    
+    <!--blog area start-->
+    
+    <!--blog area end-->
+
+
+     <!--banner area start-->
+     <!-- <div class="banner_area mb-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="{% static 'assets/img/bg/banner1.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="{% static 'assets/img/bg/banner2.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3">
+                    <div class="single_banner mb-30">
+                        <div class="banner_thumb">
+                            <a href="shop.html"><img src="{% static 'assets/img/bg/banner3.jpg' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!--banner area end-->
+    
+    <!--brand area start-->
+    <div class="brand_area mb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="brand_container owl-carousel">
+                        <div class="brand_items">
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/1.jpg' %}" alt="">
+                            </div>
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/2.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="brand_items">
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/3.jpg' %}" alt="">
+                            </div>
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/4.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="brand_items">
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/5.jpg' %}" alt="">
+                            </div>
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/6.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="brand_items">
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/7.jpg' %}" alt="">
+                            </div>
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/8.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="brand_items">
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/9.jpg' %}" alt="">
+                            </div>
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/10.jpg' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="brand_items">
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/12.jpg' %}" alt="">
+                            </div>
+                            <div class="single_brand">
+                                <img src="{% static 'assets/img/brand/13.jpg' %}" alt="">
+                            </div>
+                            <!-- <div class="single_brand">
+                                <a href="#"><img src="{% static 'assets/img/brand/13.jpg' %}" alt=""></a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--brand area end-->
+    
+{% endblock %}

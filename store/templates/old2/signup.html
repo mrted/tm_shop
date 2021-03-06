@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}
+Create a New Account
+{% endblock %}
+
+{% block content %}
+
+<div class="page home page-template-default">
+            <div id="content" class="site-content" tabindex="-1">
+                <div class="container">
+
+                    <nav class="woocommerce-breadcrumb" ><a href="home.html"></a><span class="delimiter"></span></nav><!-- .woocommerce-breadcrumb -->
+
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main">
+                            <article id="post-8" class="hentry">
+
+                                <div class="entry-content">
+                                    <div class="woocommerce">
+                                        <div class="customer-login-form">
+                                            
+
+                                            <div class="col2-set" id="customer_login">
+
+                                                
+
+                                                <div class="col-2">
+
+                                                    <h2>Register</h2>
+
+                                                    <form method="post">
+                                                        {% csrf_token %}
+                                                        <p>{{ form | crispy  }}</p>
+                                                        <button type="submit" name="button" class="btn btn-secondary">Sign Up</button>
+                                                      </form>
+                                                    
+
+                                                </div><!-- .col-2 -->
+
+                                            </div><!-- .col2-set -->
+
+                                        </div><!-- /.customer-login-form -->
+                                    </div><!-- .woocommerce -->
+                                </div><!-- .entry-content -->
+
+                            </article><!-- #post-## -->
+
+                        </main><!-- #main -->
+                    </div><!-- #primary -->
+
+                </div><!-- .col-full -->
+            </div><!-- #content -->
+        </div>
+            {% endblock %}
+
+           

@@ -1,0 +1,41 @@
+<!-- {% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Product
+{% endblock %}
+
+{% block content %} -->
+<div class="page home page-template-default">
+            <div id="content" class="site-content" tabindex="-1">
+                <div class="container">
+
+                    <nav class="woocommerce-breadcrumb" >
+                      
+                    </nav>
+
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main">
+
+                            <section>
+                                <header>
+                                    <h2 class="h1">Product Brands</h2>
+                                </header>
+
+                                <div class="woocommerce columns-6">
+                                    <ul class="product-loop-categories">
+                                        {% for brand  in brands %}
+
+                                        <li class="product-category product">
+                                            <a href="shop.html">
+                                                <img src="{{brand.brand_image.url}}" class="img-responsive" alt="">
+                                                <h3>{{brand.name}}<mark class="count">(2)</mark></h3>
+                                            </a>
+                                        </li><!-- /.item -->  
+                                        {% endfor %}                                    
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                        </div>
+
+                            <!-- {% endblock %} -->

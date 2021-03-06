@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Product
+{% endblock %}
+            
+            {% block content %}
+
+            <div id="content" class="site-content" tabindex="-1">
+                <div class="container">
+
+                    <div id="primary" class="content-area">
+                        <main id="main" class="site-main">
+                            <div class="home-v2-slider" >
+                                <!-- ========================================== SECTION – HERO : END========================================= -->
+
+                                <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
+
+                                    <div class="item" style="background-image: url(/static/assets/images/slider/banner-22.jpg);">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-5">
+                                                    <div class="caption vertical-center text-left">
+                                                        <div class="hero-1 fadeInDown-1">
+                                                            The New <br> Standard
+                                                        </div>
+
+                                                        <div class="hero-subtitle fadeInDown-2">
+                                                            under favorable smartwatches
+                                                        </div>
+                                                        <div class="hero-v2-price fadeInDown-3">
+                                                            from <br><span>N749</span>
+                                                        </div>
+                                                        <div class="hero-action-btn fadeInDown-4">
+                                                            <a href="single-product.html" class="big le-button ">Start Buying</a>
+                                                        </div>
+                                                    </div><!-- /.caption -->
+                                                </div>
+                                            </div>
+                                        </div><!-- /.container -->
+                                    </div><!-- /.item -->
+
+
+                                    <div class="item" style="background-image: url(/static/assets/images/slider/banner-11.jpg);">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-5">
+                                                    <div class="caption vertical-center text-left">
+                                                        <div class="hero-subtitle-v2 fadeInDown-1">
+                                                            shop to get what you loves
+                                                        </div>
+
+                                                        <div class="hero-2 fadeInDown-2">
+                                                            Timepieces that make a statement up to <strong>40% Off</strong>
+                                                        </div>
+
+                                                        <div class="hero-action-btn fadeInDown-3">
+                                                            <a href="single-product.html" class="big le-button ">Start Buying</a>
+                                                        </div>
+                                                    </div><!-- /.caption -->
+                                                </div>
+                                            </div>
+                                        </div><!-- /.container -->
+                                    </div><!-- /.item -->
+
+                                    <div class="item" style="background-image: url(/static/assets/images/slider/banner-3.jpg);">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-5">
+                                                    <div class="caption vertical-center text-left">
+                                                        <div class="hero-subtitle-v2 fadeInLeft-1">
+                                                            shop to get what you loves
+                                                        </div>
+
+                                                        <div class="hero-2 fadeInRight-1">
+                                                            Timepieces that make a statement up to <strong>40% Off</strong>
+                                                        </div>
+
+                                                        <div class="hero-action-btn fadeInLeft-2">
+                                                            <a href="single-product.html" class="big le-button ">Start Buying</a>
+                                                        </div>
+                                                    </div><!-- /.caption -->
+                                                </div>
+                                            </div>
+                                        </div><!-- /.container -->
+                                    </div><!-- /.item -->
+
+
+                                </div><!-- /.owl-carousel    -->
+
+                                <!-- ========================================= SECTION – HERO : END ========================================= -->
+
+                            </div><!-- /.home-v1-slider -->
+                            <div class="home-v2-ads-block animate-in-view fadeIn animated" data-animation=" animated fadeIn">
+                                <div class="ads-block row">
+                                    <div class="ad col-xs-12 col-sm-12">
+                                        <div class="media">
+                                            <div class="media-left media-middle"><img src="{% static 'assets/images/ad-block/1.jpg' %}" alt="" /></div>
+                                            <div class="media-body media-middle">
+                                                <div class="ad-text">
+                                                    Catch Big<br> <strong>Deals
+                                                </div>
+                                                <div class="ad-action">
+                                                    <a href="{% url 'products-list' %}">Shop now</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    
+
+                                    <!-- <div class="ad col-xs-12 col-sm-6">
+                                        <div class="media">
+                                            <div class="media-left media-middle"><img src="{% static 'assets/images/ad-block/2.jpg' %}" alt="" /></div>
+                                            <div class="media-body media-middle">
+                                                <div class="ad-text">
+                                                    Tablets, <br>Smartphones<br> and more
+                                                </div>
+                                                <div class="ad-action">
+                                                    <a href="#"><span class="from"><span class="prefix">From</span><span class="value"><sup>N</sup>25,000</span><span class="suffix">99</span></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <section class="products-carousel-tabs animate-in-view fadeIn animated" data-animation="fadeIn">
+                                <h2 class="sr-only">Product Carousel Tabs</h2>
+                               
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab-products-1" role="tabpanel">
+                                        <section class="section-products-carousel" >
+                                            <div class="home-v2-owl-carousel-tabs">
+                                                <div class="woocommerce columns-3">
+
+
+                                                    <div class="products owl-carousel home-v2-carousel-tabs products-carousel columns-3">
+
+                                                        {% for product in products %}
+                                                        <div class="product first">
+                                                            <div class="product-outer">
+                                                                <div class="product-inner">
+                                                                    <span class="loop-product-categories">{{product.category}}</a></span>
+                                                                    <a href="{{product.get_url}}">
+                                                                        <h3>{{product.name}}</h3>
+                                                                        <div class="product-thumbnail">
+                                                                            <img src="assets/images/blank.gif" data-echo="{{product.image.url}}" class="img-responsive" alt="">
+                                                                        </div>
+                                                                    </a>
+
+                                                                    <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span class="amount"> N {{product.price}}</span></ins>
+                                                                                <!-- <del><span class="amount">$2,299.00</span></del> -->
+                                                                                <span class="amount"> </span>
+                                                                            </span>
+                                                                        </span>
+                                                                        <a rel="nofollow" href="{% url 'add_cart' product.id %}" class="button add_to_cart_button">Add to cart</a>
+                                                                    </div><!-- /.price-add-to-cart -->
+
+                                                                    <div class="hover-area">
+                                                                        <!-- <div class="action-buttons">
+
+                                                                            <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+
+                                                                            <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                        </div> -->
+                                                                    </div>
+                                                                </div><!-- /.product-inner -->
+                                                            </div><!-- /.product-outer -->
+                                                        </div><!-- /.product -->
+                                                        {% endfor %}
+   
+                                                    </div><!-- /.products -->
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div><!-- /.tab-pane -->
+
+                                   
+
+                                </div><!-- /.tab-content -->
+                            </section><!-- /.products-carousel-tabs -->
+                           
+                           
+                           
+                           
+                        </main><!-- #main -->
+                    </div><!-- #primary -->
+
+                    <div id="sidebar" class="sidebar" role="complementary" style="">
+                       
+                      
+                        <aside id="electro_features_block_widget-2" class="widget widget_electro_features_block_widget">
+                            <div class="features-list columns-1">
+                                <div class="feature">
+                                    <div class="media">
+                                        <div class="media-left media-middle feature-icon">
+                                            <i class="ec ec-transport"></i>
+                                        </div>
+                                        <div class="media-body media-middle feature-text">
+                                            <strong>Free Delivery</strong> from N30,500
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feature">
+                                    <div class="media">
+                                        <div class="media-left media-middle feature-icon">
+                                            <i class="ec ec-customers"></i>
+                                        </div>
+                                        <div class="media-body media-middle feature-text">
+                                            <strong>99% Positive</strong> Feedbacks
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feature">
+                                    <div class="media">
+                                        <div class="media-left media-middle feature-icon">
+                                            <i class="ec ec-returning"></i>
+                                        </div>
+                                        <div class="media-body media-middle feature-text">
+                                            <strong>365 days</strong> for free return
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feature">
+                                    <div class="media">
+                                        <div class="media-left media-middle feature-icon">
+                                            <i class="ec ec-payment"></i>
+                                        </div>
+                                        <div class="media-body media-middle feature-text">
+                                            <strong>Payment</strong> Secure System
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feature">
+                                    <div class="media">
+                                        <div class="media-left media-middle feature-icon">
+                                            <i class="ec ec-tag"></i>
+                                        </div>
+                                        <div class="media-body media-middle feature-text">
+                                            <strong>Only Best</strong> Brands
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+
+                        
+
+                        <!-- <aside class="widget widget_text">
+                            <div class="textwidget col-xs-12">
+                                <a href="#">
+                                    <img src="{% static 'assets/images/ad-block/270x214.png' %}" alt="Banner">
+                                </a>
+                            </div>
+                        </aside> -->
+                       
+                       
+                    </div>
+
+                </div><!-- .container -->
+            </div><!-- #content -->
+
+           
+            
+{% endblock %}
+           

@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Cart
+{% endblock %}
+
+{% block content %}
+<!--sticky header area end-->
+
+<!--breadcrumbs area start-->
+<div class="breadcrumbs_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb_content">
+                    <ul>
+                        <li><a href="/">home</a></li>
+                        <li>Shopping Cart</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--breadcrumbs area end-->
+
+<!--shopping cart area start -->
+{% if not cart_items %}
+<div class="container">
+    <div class="shopping_cart_area mt-60">
+        <div class="container">your Shopping cart is empty</div>
+
+    </div>
+</div>
+
+{% else %}
+<div class="shopping_cart_area mt-60">
+    <div class="container">
+        <form action="#">
+            <div class="row">
+                <div class="col-12">
+                    <div class="table_desc">
+                        <div class="cart_page table-responsive">
+                            <table>
+                                <thead>
+
+                                    <tr>
+                                        <th class="product_remove">Delete</th>
+                                        <th class="product_thumb">Image</th>
+                                        <th class="product_name">Product</th>
+                                        <th class="product-price">Price</th>
+                                        <th class="product_quantity">Quantity</th>
+                                        <th class="product_total">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for cart_item in cart_items %}
+                                    <tr>
+                                        {% if cart_item.quantity < cart_item.product.stock %}
+                                        <td class="product_remove"><a
+                                                href="{% url 'cart_remove' cart_item.product.id %}"><i
+                                                    class="fa fa-trash-o"></i></a></td>
+                                        {% endif %}
+                                        <td class="product_thumb"><a href="{{product.get_url}}"><img
+                                                    src="{{cart_item.product.image.url}}" alt=""></a></td>
+                                        <td class="product_name"><a
+                                                href="{{product.get_url}}">{{cart_item.product.product_name}}</a></td>
+                                        <td class="product-price">{{cart_item.product.price}}</td>
+                                        <td class="product_quantity"><label>{{cart_item.quantity}} x
+                                                {{cart_item.product.price}}</label> </td>
+                                        <td class="product_total"> ₦{{cart_item.sub_total}}</td>
+
+
+                                    </tr>
+
+                                    {% endfor %}
+                                </tbody>
+                                {% endif %}
+
+                            </table>
+                        </div>
+                        <div class="cart_submit">
+                            <!-- <button type="submit">update cart</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--coupon code area start-->
+            <div class="coupon_area">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="coupon_code left">
+                            <h3>Coupon</h3>
+                            <div class="coupon_inner">
+                                <p>Enter your coupon code if you have one.</p>
+                                <input placeholder="Coupon code" type="text">
+                                <button type="submit">Apply coupon</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="coupon_code right">
+                            <h3>Cart Totals</h3>
+                            <div class="coupon_inner">
+                                <!-- <div class="cart_subtotal">
+                                       <p>Subtotal</p>
+                                       <p class="cart_amount">${{total}}</p>
+                                   </div> -->
+                                <!-- <div class="cart_subtotal ">
+                                       <p>Shipping</p>
+                                       <p class="cart_amount"><span>Flat Rate:</span> £255.00</p>
+                                   </div> -->
+                                <!-- <a href="#">Calculate shipping</a> -->
+
+                                <div class="cart_subtotal">
+                                    <p>Total</p>
+                                    <p class="cart_amount">₦{{total}}</p>
+                                </div>
+                                <!-- <div class="checkout_btn">
+                                       <a href="#">Proceed to Checkout</a>
+                                   </div> -->
+                                <div class="">
+
+                                    <!-- paystack -->
+                                    <form>
+                                        <script src="https://js.paystack.co/v1/inline.js"></script>
+                                        <button type="button" onclick="payWithPaystack()"> call 08175922638 </button>
+                                    </form>
+
+                                    <!-- <script>
+                                    function payWithPaystack(){
+                                      var handler = PaystackPop.setup({
+                                        key: 'pk_live_a13311798fcc2eab408cc03279d6948a3e1e2b38',
+                                        email: 'shandysquad@gmail.com',
+                                        amount: 10000,
+                                        ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                                        metadata: {
+                                           custom_fields: [
+                                              {
+                                                  display_name: "Mobile Number",
+                                                  variable_name: "mobile_number",
+                                                  value: "08069298759"
+                                              }
+                                           ]
+                                        },
+                                        callback: function(response){
+                                            alert('success. transaction ref is ' + response.reference);
+                                        },
+                                        onClose: function(){
+                                            alert('window closed');
+                                        }
+                                      });
+                                      handler.openIframe();
+                                    }
+                                  </script> -->
+
+                                    <!-- paystack -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--coupon code area end-->
+        </form>
+    </div>
+</div>
+<!--shopping cart area end -->
+{% endblock %}

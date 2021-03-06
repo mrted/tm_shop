@@ -1,0 +1,1070 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" itemscope="itemscope" itemtype="http://schema.org/WebPage">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %} {% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/bootstrap.min.css' %}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-awesome.min.css' %}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/animate.min.css' %}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/font-electro.css' %}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/owl-carousel.css' %}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" media="all" />
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/colors/yellow.css' %}" media="all" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css'
+        href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic'>
+    <link rel="shortcut icon" href="{% static 'assets/images/fav-icon.pn' %}">
+</head>
+
+<body>
+    <div id="page" class="hfeed site">
+        <a class="skip-link screen-reader-text" href="#site-navigation">Skip to navigation</a>
+        <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+        <div class="top-bar">
+            <div class="container">
+                <nav>
+                    <span> <a href="/"> <img src="{% static 'assets/images/logo.png' %}" alt=""> </a></span>
+                    <ul id="menu-top-bar-left" class="nav nav-inline pull-left animate-dropdown flip">
+                        <li class="menu-item animate-dropdown"><a title="Welcome to Worldwide Electronics Store"
+                                href="#">Welcome to Dline Store</a></li>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul id="menu-top-bar-right" class="nav nav-inline pull-right animate-dropdown flip">
+                        <!-- <li class="menu-item animate-dropdown"><a title="Store Locator" href="#"><i class="ec ec-map-pointer"></i>Store Locator</a></li> -->
+                        <!-- <li class="menu-item animate-dropdown"><a title="Track Your Order" href="track-your-order.html"><i class="ec ec-transport"></i>Track Your Order</a></li> -->
+                        <li class="menu-item animate-dropdown"><a title="Shop" href="{% url 'products-list' %}"><i
+                                    class="ec ec-shopping-bag"></i>Shop</a></li>
+                        {% if request.user.is_authenticated %}
+                        <li class="menu-item animate-dropdown"><a title="My Account" href="{% url 'signout' %}"><i
+                                    class="ec ec-user"></i>Signout</a></li>
+                        {% else %}
+                        <li class="menu-item animate-dropdown"><a title="My Account" href="{% url 'signup' %}"><i
+                                    class="ec ec-user"></i>singup</a></li>
+                        <li class="menu-item animate-dropdown"><a title="My Account" href="{% url 'signin' %}"><i
+                                    class="ec ec-user"></i>Sign In</a></li>
+                        {% endif %}
+                        <li class="menu-item animate-dropdown"><a title="Store Locator"></i>(234) 806-929-8759</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+       <!-- category nav -->
+
+       <nav class="navbar navbar-primary navbar-full">
+        <div class="container">
+            <ul class="nav navbar-nav departments-menu animate-dropdown">
+                <li class="nav-item dropdown ">
+
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="departments-menu-toggle" >Shop by Department</a>
+                    <ul id="menu-vertical-menu" class="dropdown-menu yamm departments-menu-dropdown">
+                        <!-- <li class="highlight menu-item animate-dropdown active"><a title="Value of the Day" href="product-category.html">All Products</a></li> -->
+                        <!-- <li class="highlight menu-item animate-dropdown"><a title="Top 100 Offers" href="home-v3.html">Top 100 Offers</a></li>
+                        <li class="highlight menu-item animate-dropdown"><a title="New Arrivals" href="home-v3-full-color-background.html">New Arrivals</a></li> -->
+
+                        <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2584 dropdown">
+                            <a title="Computers &amp; Accessories" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Computers &#038; Accessories</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Computers</li>
+                                                                    <!-- <li><a href="#">All Computers &amp; Accessories</a></li> -->
+                                                                    <li><a href="#">Laptops PC's &amp; Macbook's </a></li>
+                                                                    <li><a href="#">Desktops PC's &amp; iMac's</a></li>
+                                                                    <!-- <li><a href="#">Printers &amp; Ink</a></li>
+                                                                    <li><a href="#">Networking &amp; Internet Devices</a></li> -->
+                                                                    <!-- <li><a href="#">Computer Accessories</a></li> -->
+                                                                    <li><a href="#">Monitors</a></li>
+                                                                    <li class="nav-divider"></li>
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Accessories</li>
+                                                                    <li><a href="#">All Accessories</a></li>
+                                                                    <!-- <li><a href="#">Pens &amp; Writing</a></li> -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2585 dropdown">
+                            <a title="Cameras, Audio &amp; Video" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Cameras &amp Accessories</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Cameras</li>
+                                                                    <li><a href="#">Digital Cameras</a></li>
+                                                                    <li><a href="#">Professional &amp; SLR Cameras </a></li>
+                                                                    <li><a href="#">Camcoders &amp; Video Cameras</a></li>
+                                                                    <li><a href="#">CCTV Cameras</a></li>
+                                                                    <!-- <li><a href="#">Networking &amp; Internet Devices</a></li>
+                                                                    <li><a href="#">Computer Accessories</a></li>
+                                                                    <li><a href="#">Software</a></li>
+                                                                    <li class="nav-divider"></li> -->
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Accessories</li>
+                                                                    <li><a href="#">All Camera Accessories</a></li>
+                                                                    <!-- <li><a href="#">Pens &amp; Writing</a></li> -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2586 dropdown">
+                            <a title="Mobiles &amp; Tablets" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Mobiles &#038; Tablets</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Mobiles &amp; Tablet</li>
+                                                                    <li><a href="#">Smartphones</a></li>
+                                                                    <li><a href="#">Basic Phones</a></li>
+                                                                    <li><a href="#">Tablets</a></li>
+                                                                    <!-- <li><a href="#">Printers &amp; Ink</a></li>
+                                                                    <li><a href="#">Networking &amp; Internet Devices</a></li>
+                                                                    <li><a href="#">Computer Accessories</a></li>
+                                                                    <li><a href="#">Software</a></li> -->
+                                                                    <li class="nav-divider"></li>
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Accessories</li>
+                                                                    <li><a href="#">All Phone &amp; Tablet Accessories</a></li>
+                                                                    <!-- <li><a href="#">Pens &amp; Writing</a></li> -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2587 dropdown">
+                            <a title="Movies, Music &amp; Video Games" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Watches &amp; Eye wears</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Watches</li>
+                                                                    <li><a href="#">Basic watches</a></li>
+                                                                    <li><a href="#">Smartwatches</a></li>
+                                                                    <li><a href="#">Eye wears</a></li>
+                                                                    <!-- <li><a href="#">Printers &amp; Ink</a></li>
+                                                                    <li><a href="#">Networking &amp; Internet Devices</a></li>
+                                                                    <li><a href="#">Computer Accessories</a></li>
+                                                                    <li><a href="#">Software</a></li> -->
+                                                                    <li class="nav-divider"></li>
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Watch Accessories</li>
+                                                                    <li><a href="#">All Accessories</a></li>
+                                                                    <!-- <li><a href="#">Pens &amp; Writing</a></li> -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2588 dropdown">
+                            <a title="TV &amp; Audio" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Home Electronics</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Home Electronics</li>
+                                                                    <li><a href="#">TVs</a></li>
+                                                                    <li><a href="#">Sound Systems</a></li>
+                                                                    <li><a href="#">Fridges</a></li>
+                                                                    <li><a href="#">Fans</a></li>
+                                                                    <li><a href="#">Bunners</a></li>
+                                                                    <li><a href="#">Air Conditioners</a></li>
+                                                                    <!-- <li><a href="#">Software</a></li> -->
+                                                                    <li class="nav-divider"></li>
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <!-- <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">TV Accessories</li>
+                                                                    <li><a href="#">All Accessories</a></li>
+                                                                    <li><a href="#">Pens &amp; Writing</a></li>
+                                                                </ul>
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2589 dropdown">
+
+                            <a title="Watches &amp; Eyewear" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Power</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Power</li>
+                                                                    <li><a href="#">Solar Panels</a></li>
+                                                                    <li><a href="#">Inverters</a></li>
+                                                                    <li><a href="#">ups</a></li>
+                                                                    <li><a href="#">Stabilizers</a></li>
+                                                                    <!-- <li><a href="#">Printers &amp; Ink</a></li>
+                                                                    <li><a href="#">Networking &amp; Internet Devices</a></li>
+                                                                    <li><a href="#">Computer Accessories</a></li>
+                                                                    <li><a href="#">Software</a></li> -->
+                                                                    <li class="nav-divider"></li>
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <!-- <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Power accessories</li>
+                                                                    <li><a href="#">All Office &amp; Stationery</a></li>
+                                                                    <li><a href="#">Pens &amp; Writing</a></li>
+                                                                </ul>
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <!-- <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2590 dropdown">
+
+                            <a title="Car, Motorbike &amp; Industrial" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Car, Motorbike &#038; Industrial</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Computers &amp; Accessories</li>
+                                                                    <li><a href="#">All Computers &amp; Accessories</a></li>
+                                                                    <li><a href="#">Laptops, Desktops &amp; Monitors</a></li>
+                                                                    <li><a href="#">Pen Drives, Hard Drives &amp; Memory Cards</a></li>
+                                                                    <li><a href="#">Printers &amp; Ink</a></li>
+                                                                    <li><a href="#">Networking &amp; Internet Devices</a></li>
+                                                                    <li><a href="#">Computer Accessories</a></li>
+                                                                    <li><a href="#">Software</a></li>
+                                                                    <li class="nav-divider"></li>
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Office &amp; Stationery</li>
+                                                                    <li><a href="#">All Office &amp; Stationery</a></li>
+                                                                    <li><a href="#">Pens &amp; Writing</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li> -->
+
+                        <!-- <li class="menu-item animate-dropdown"><a title="Accessories" href="product-category.html">Accessories</a></li> -->
+                        <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2589 dropdown">
+
+                            <a title="Watches &amp; Eyewear" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Printers &amp; Scanners</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">printers</li>
+                                                                    <li><a href="#">laserjets</a></li>
+                                                                    <li><a href="#">Deskjets</a></li>
+                                                                    <li><a href="#">officejets</a></li>
+                                                                    <!-- <li><a href="#">Stabilizers</a></li> -->
+                                                                    <!-- <li><a href="#">Printers &amp; Ink</a></li>
+                                                                    <li><a href="#">Networking &amp; Internet Devices</a></li>
+                                                                    <li><a href="#">Computer Accessories</a></li>
+                                                                    <li><a href="#">Software</a></li> -->
+                                                                    <li class="nav-divider"></li>
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Scanners</li>
+                                                                    <li><a href="#">All scarnners</a></li>
+                                                                    <!-- <li><a href="#">Pens &amp; Writing</a></li> -->
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="yamm-tfw menu-item menu-item-has-children animate-dropdown menu-item-2589 dropdown">
+
+                            <a title="Watches &amp; Eyewear" href="product-category.html" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">Network Equipment</a>
+                            <ul role="menu" class=" dropdown-menu">
+                                <li class="menu-item animate-dropdown menu-item-object-static_block">
+                                    <div class="yamm-content">
+                                        <div class="vc_row row wpb_row vc_row-fluid bg-yamm-content bg-yamm-content-bottom bg-yamm-content-right">
+                                            <div class="wpb_column vc_column_container vc_col-sm-12 col-sm-12">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_single_image wpb_content_element vc_align_left">
+                                                            <figure class="wpb_wrapper vc_figure">
+                                                                <div class="vc_single_image-wrapper   vc_box_border_grey"><img width="540" height="460" src="{% static 'assets/images/megamenu-2.png' %}" class="vc_single_image-img attachment-full" alt="megamenu-2"/></div>
+                                                            </figure>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="vc_row row wpb_row vc_row-fluid">
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Network Equipment</li>
+                                                                    <li><a href="#">Wifi Routers</a></li>
+                                                                    <li><a href="#">Switches</a></li>
+                                                                    <li><a href="#"> Data Cables</a></li>
+                                                                    <li><a href="#">Access points &amp; Range Extenders</a></li>
+                                                                    <!-- <li><a href="#">Printers &amp; Ink</a></li>
+                                                                    <li><a href="#">Networking &amp; Internet Devices</a></li>
+                                                                    <li><a href="#">Computer Accessories</a></li>
+                                                                    <li><a href="#">Software</a></li> -->
+                                                                    <li class="nav-divider"></li>
+                                                                    <li><a href="#"><span class="nav-text">All Electronics</span><span class="nav-subtext">Discover more products</span></a></li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="wpb_column vc_column_container vc_col-sm-6 col-sm-6">
+                                                <div class="vc_column-inner ">
+                                                    <div class="wpb_wrapper">
+                                                        <div class="wpb_text_column wpb_content_element ">
+                                                            <!-- <div class="wpb_wrapper">
+                                                                <ul>
+                                                                    <li class="nav-title">Scanners</li>
+                                                                    <li><a href="#">All scarnners</a></li>
+                                                                    <li><a href="#">Pens &amp; Writing</a></li>
+                                                                </ul>
+                                                            </div> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li class="menu-item animate-dropdown"><a title="Office Supplies" href="product-category.html">Office Supplies</a></li>
+                        <li class="menu-item animate-dropdown"><a title="Computer Components" href="product-category.html">Gaming</a></li>
+                        <li class="menu-item animate-dropdown"><a title="Software" href="product-category.html">Softwares</a></li>
+                        <!-- <li class="menu-item animate-dropdown"><a title="Car Electronic &amp; GPS" href="product-category.html">Car Electronic &#038; GPS</a></li>
+                        <li class="menu-item animate-dropdown"><a title="Accessories" href="product-category.html">Accessories</a></li>
+                        <li class="menu-item animate-dropdown"><a title="Printers &amp; Ink" href="product-category.html">Printers &#038; Ink</a></li> -->
+                    </ul>
+                </li>
+            </ul>
+            <form class="navbar-search" method="get" action="/">
+                <label class="sr-only screen-reader-text" for="search">Search for:</label>
+                <div class="input-group">
+                    <input type="text" id="search" class="form-control search-field" dir="ltr" value="" name="s" placeholder="Search for products" />
+                    <div class="input-group-addon search-categories">
+                        <select name='product_cat' id='product_cat' class='postform resizeselect' >
+                            <option value='0' selected='selected'>All Categories</option>
+                            <option class="level-0" value="laptops-laptops-computers">Laptops</option>
+                            <option class="level-0" value="ultrabooks-laptops-computers">Ultrabooks</option>
+                            <option class="level-0" value="mac-computers-laptops">Mac Computers</option>
+                            <option class="level-0" value="all-in-one-laptops-computers">All in One</option>
+                            <option class="level-0" value="servers">Servers</option>
+                            <option class="level-0" value="peripherals">Peripherals</option>
+                            <option class="level-0" value="gaming-laptops-computers">Gaming</option>
+                            <option class="level-0" value="accessories-laptops-computers">Accessories</option>
+                            <option class="level-0" value="audio-speakers">Audio Speakers</option>
+                            <option class="level-0" value="headphones">Headphones</option>
+                            <option class="level-0" value="computer-cases">Computer Cases</option>
+                            <option class="level-0" value="printers">Printers</option>
+                            <option class="level-0" value="cameras">Cameras</option>
+                            <option class="level-0" value="smartphones">Smartphones</option>
+                            <option class="level-0" value="game-consoles">Game Consoles</option>
+                            <option class="level-0" value="power-banks">Power Banks</option>
+                            <option class="level-0" value="smartwatches">Smartwatches</option>
+                            <option class="level-0" value="chargers">Chargers</option>
+                            <option class="level-0" value="cases">Cases</option>
+                            <option class="level-0" value="headphone-accessories">Headphone Accessories</option>
+                            <option class="level-0" value="headphone-cases">Headphone Cases</option>
+                            <option class="level-0" value="tablets">Tablets</option>
+                            <option class="level-0" value="tvs">TVs</option>
+                            <option class="level-0" value="wearables">Wearables</option>
+                            <option class="level-0" value="pendrives">Pendrives</option>
+                        </select>
+                    </div>
+                    <div class="input-group-btn">
+                        <input type="hidden" id="search-param" name="post_type" value="product" />
+                        <button type="submit" class="btn btn-secondary"><i class="ec ec-search"></i></button>
+                    </div>
+                </div>
+            </form>
+
+            <ul class="navbar-mini-cart navbar-nav animate-dropdown nav pull-right flip">
+                <li class="nav-item dropdown">
+                    <a href="cart.html" class="nav-link" data-toggle="dropdown">
+                        <i class="ec ec-shopping-bag"></i>
+                        <span class="cart-items-count count">4</span>
+                        <span class="cart-items-total-price total-price"><span class="amount">&#36;1,215.00</span></span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-mini-cart">
+                        <li>
+                            <div class="widget_shopping_cart_content">
+
+                                <ul class="cart_list product_list_widget ">
+
+
+                                    <li class="mini_cart_item">
+                                        <a title="Remove this item" class="remove" href="#">×</a>
+                                        <a href="single-product.html">
+                                            <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="assets/images/products/mini-cart1.jpg" alt="">White lumia 9001&nbsp;
+                                        </a>
+
+                                        <span class="quantity">2 × <span class="amount">£150.00</span></span>
+                                    </li>
+
+
+                                    <li class="mini_cart_item">
+                                        <a title="Remove this item" class="remove" href="#">×</a>
+                                        <a href="single-product.html">
+                                            <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="assets/images/products/mini-cart2.jpg" alt="">PlayStation 4&nbsp;
+                                        </a>
+
+                                        <span class="quantity">1 × <span class="amount">£399.99</span></span>
+                                    </li>
+
+                                    <li class="mini_cart_item">
+                                        <a data-product_sku="" data-product_id="34" title="Remove this item" class="remove" href="#">×</a>
+                                        <a href="single-product.html">
+                                        <img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image" src="assets/images/products/mini-cart3.jpg" alt="">POV Action Cam HDR-AS100V&nbsp;
+
+                                        </a>
+
+                                        <span class="quantity">1 × <span class="amount">£269.99</span></span>
+                                    </li>
+
+
+                                </ul><!-- end product list -->
+
+
+                                <p class="total"><strong>Subtotal:</strong> <span class="amount">£969.98</span></p>
+
+
+                                <p class="buttons">
+                                    <a class="button wc-forward" href="cart.html">View Cart</a>
+                                    <a class="button checkout wc-forward" href="checkout.html">Checkout</a>
+                                </p>
+
+
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="navbar-wishlist nav navbar-nav pull-right flip">
+                <li class="nav-item">
+                    <a href="wishlist.html" class="nav-link"><i class="ec ec-favorites"></i></a>
+                </li>
+            </ul>
+            <ul class="navbar-compare nav navbar-nav pull-right flip">
+                <li class="nav-item">
+                    <a href="compare.html" class="nav-link"><i class="ec ec-compare"></i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+        <!--   will be back-->
+
+        {% block content %} {% endblock %}
+
+        <section class="brands-carousel">
+            <h2 class="sr-only">Brands Carousel</h2>
+            <div class="container">
+                <div id="owl-brands" class="owl-brands owl-carousel unicase-owl-carousel owl-outer-nav">
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>Acer</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                 <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/1.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>Apple</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                 <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/2.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>Asus</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                 <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/3.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>Dell</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/4.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>Gionee</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/5.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>HP</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/6.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>HTC</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/3.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>IBM</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/5.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>Lenova</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/2.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>LG</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/1.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>Micromax</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/6.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                    <div class="item">
+
+                        <a href="#">
+
+                            <figure>
+                                <figcaption class="text-overlay">
+                                    <div class="info">
+                                        <h4>Microsoft</h4>
+                                    </div><!-- /.info -->
+                                </figcaption>
+
+                                <img src="assets/images/blank.gif" data-echo="{% static 'assets/images/brands/4.png' %}" class="img-responsive" alt="">
+
+                            </figure>
+                        </a>
+                    </div><!-- /.item -->
+
+
+                </div><!-- /.owl-carousel -->
+
+            </div>
+        </section>
+
+
+        <footer id="colophon" class="site-footer">
+            <!-- <div class="footer-widgets">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-xs-12">
+                                
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-xs-12">
+                                
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-xs-12">
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+            <div class="footer-newsletter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-7">
+                            <h5 class="newsletter-title">Sign up to Newsletter</h5>
+                            <span class="newsletter-marketing-text">...and receive <strong>bonus coupon for first
+                                    shopping</strong></span>
+                        </div>
+                        <div class="col-xs-12 col-sm-5">
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter your email address">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" type="button">Sign Up</button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </footer><!-- #colophon -->
+
+    </div><!-- #page -->
+
+    <script type="text/javascript" src="{% static 'assets/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/tether.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap-hover-dropdown.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/echo.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/wow.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.easing.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/electro.js' %}"></script>
+
+</body>
+
+</html>
