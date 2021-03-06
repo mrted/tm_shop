@@ -25,7 +25,7 @@ SECRET_KEY = '56fi&j$1yd33cf$1%tupzhlngah17l(*)n^h8p*oh6icv93(h='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,12 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'store',
-    # 'stripe',
+    'stripe',
     'crispy_forms',
     'widget_tweaks',   
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -159,3 +160,9 @@ EMAIL_HOST_PASSWORD = '1f0122cd0c47b429fed163a597cae209-898ca80e-af15bd1e'
 # PAYSTACK_LIB_MODULE = getattr(settings, 'PAYSTACK_LIB_MODULE',
 #                               'paystack.utils')
 
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
